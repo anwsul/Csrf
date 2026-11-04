@@ -1,0 +1,19 @@
+﻿@page
+@model MyBank.Pages.SignupModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="form-container">
+    <form method="post" class="signup">
+        <img class="bank-icon" src="~/icons/bank-icon.svg"/>
+        <input asp-for="Input.Username"  placeholder="username"/>
+        <input asp-for="Input.Password" type="password" placeholder="password"/>
+        <input  type="password" placeholder="confirm password"/>
+        <button>Signup</button>
+        <p>Already have an account? <a href="login">Login</a></p>
+    </form>
+</div>
+

@@ -1,0 +1,24 @@
+﻿@page
+@using MyBank.Services;
+@using MyBank.Models;
+@model IndexModel
+@addTagHelper *,  Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+    User? user = UserService.GetUserFromSesssion(HttpContext.Session);
+}
+
+@if (user == null)
+{
+    <p><a href="login">Login</a></p>
+    <p><a href="signup">Signup</a></p>
+} else
+{
+    <p>Welcome <strong>@user.Username</strong></p>
+    <p>Your password is <strong>@user.Password</strong></p>
+
+    <form method="post">
+        <button class="logout">Logout</button>
+    </form>
+}
